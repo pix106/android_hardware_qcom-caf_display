@@ -23,7 +23,10 @@ cc_library_shared {
         "-Wno-sign-conversion",
         "-Wno-unused-parameter",
         "-Wno-unused-variable",
-    ],
+    ] + select(soong_config_variable("qtidisplay", "target_needs_raw10_buffer_fix"), {
+        "true": ["-DRAW10_BUFFER_FIX"],
+        default: [],
+    }),
     srcs: [
         "gr_utils.cpp",
         "gr_adreno_info.cpp",
