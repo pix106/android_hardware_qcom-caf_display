@@ -154,7 +154,7 @@ int HWCSession::Init() {
   // Start QService and connect to it.
   qService::QService::init();
   android::sp<qService::IQService> iqservice = android::interface_cast<qService::IQService>(
-      android::defaultServiceManager()->getService(android::String16(qservice_name)));
+      android::defaultServiceManager()->checkService(android::String16(qservice_name)));
 
   if (iqservice.get()) {
     iqservice->connect(android::sp<qClient::IQClient>(this));
