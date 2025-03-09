@@ -39,9 +39,6 @@ LOCAL_SHARED_LIBRARIES        := $(common_libs) libqdMetaData libdl  \
                                   android.hardware.graphics.mapper@4.0
 LOCAL_CFLAGS                  := $(common_flags) -DLOG_TAG=\"qdgralloc\" -Wno-sign-conversion \
                                  -D__QTI_DISPLAY_GRALLOC__
-ifeq ($(TARGET_NEEDS_RAW10_BUFFER_FIX),true)
-LOCAL_CFLAGS                  += -DRAW10_BUFFER_FIX
-endif
 
 ifeq ($(TARGET_USES_YCRCB_CAMERA_ENCODE),true)
     LOCAL_CFLAGS              += -DUSE_YCRCB_CAMERA_ENCODE
